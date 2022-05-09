@@ -13,6 +13,22 @@ public class Fabricante {
 	public int getVentas(){
         return numVentas;
     }
+	public static Fabricante fabricaMayorVentas(){
+        Fabricante mayor = contador.get(0);
+        for(Fabricante f: contador){
+            if(f.getVentas() > mayor.getVentas()){
+                mayor = f;
+            }
+        }
+        return mayor;
+    }
+	
+	public Fabricante(String nombre, Pais pais) {
+		super();
+		this.nombre = nombre;
+		this.pais = pais;
+		contador.add(this);
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,19 +41,6 @@ public class Fabricante {
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-	public static Fabricante fabricaMayorVentas(){
-        Fabricante mayor = contador.get(0);
-        for(Fabricante f: contador){
-            if(f.getVentas() > mayor.getVentas()){
-                mayor = f;
-            }
-        }
-        return mayor;
-    }
-	public Fabricante(String nombre, Pais pais) {
-		super();
-		this.nombre = nombre;
-		this.pais = pais;
-		contador.add(this);
-	}
+	
+	
 }
